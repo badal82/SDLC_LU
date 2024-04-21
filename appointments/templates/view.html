@@ -1,0 +1,19 @@
+{% extends 'admin/change_list.html' %}
+
+{% block object-tools %}
+    <div>
+        <form action="statistics" method="POST">
+            {% csrf_token %}
+            <ul class="object-tools" style="padding-right: 158px;margin-top: -29px;">
+                <li>
+                  <a href="statistics">
+                    Statistics
+                  </a>
+                </li>
+            </ul>
+                <!-- <button type="submit">Statistics</button> -->
+        </form>
+    </div>
+    <br />
+    {{ block.super }}
+{% endblock %}

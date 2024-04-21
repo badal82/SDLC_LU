@@ -1,0 +1,25 @@
+{% extends 'admin/base_site.html' %}
+
+
+{% block content %}
+
+    <h1>Apppointment Summary for {{doctor_name}}</h1>
+
+    <table>
+        <tr>
+          <th>Patinet Name</th>
+          <th>Appointment Status</th>
+          <th>Appoitnment Date</th>
+        </tr>
+        {% for item in appointments %}
+        <TR>
+           <TD class="c1">{{item.patient_name}}</TD>
+           <TD class="c2">{{item.status}}</TD>
+           <TD class="c3">{{item.date_time}}</TD>
+        </TR>
+        
+        {% endfor %}
+
+      </table>
+
+{% endblock %}

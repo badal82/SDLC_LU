@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+</head>
+<body>
+    <h2>User Profile</h2>
+    {% if user.is_authenticated %}
+        <p>Welcome, {{ user.username }}!</p>
+        {% if doctor_profile %}
+            <h3>Doctor Profile</h3>
+            <p>Name: {{ doctor_profile.user.first_name }} {{ doctor_profile.user.last_name }}</p>
+            <!-- Add more fields from DoctorProfile model as needed -->
+        {% else %}
+            <p>You are not registered as a doctor.</p>
+            <a href="{% url 'logout' %}">Logout</a>
+        {% endif %}
+    {% else %}
+        <p>You are not logged in.</p>
+        <a href="{% url 'login' %}">Login</a> | <a href="{% url 'register' %}">Register</a>
+    {% endif %}
+</body>
+</html>
